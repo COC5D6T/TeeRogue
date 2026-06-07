@@ -1,0 +1,25 @@
+[package]
+name = "ddnet-engine-shared"
+version = "0.0.1"
+edition = "2021"
+rust-version = "1.63"
+publish = false
+license = "Zlib"
+
+[lib]
+crate-type = ["rlib", "staticlib"]
+path = "lib.rs"
+
+[dependencies]
+ddnet-base = { path = "../../base" }
+ddnet-engine = { path = ".." }
+
+cxx = "=1.0.71"
+libtw2-common = { path = "../../../vendor/libtw2-common" }
+libtw2-packer = { path = "../../../vendor/libtw2-packer" }
+libtw2-snapshot = { path = "../../../vendor/libtw2-snapshot" }
+libtw2-warn = { path = "../../../vendor/libtw2-warn" }
+uuid = "1.0"
+
+[dev-dependencies]
+ddnet-test = { path = "../../rust-bridge/test", features = ["link-test-libraries"] }
