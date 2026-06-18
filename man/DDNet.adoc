@@ -53,4 +53,4 @@ You can contribute by opening a pull request here: https://github.com/ddnet/ddne
 == COPYRIGHT
 Free use of this software is granted under the terms of the MIT License.
 
-You can read the license here: https://github.com/COC5D6T/TeeRogue/blob/master/docs/PROJECT_LICENSE_REFERENCE.txt
+License text is not published in a dedicated repository file at the moment.

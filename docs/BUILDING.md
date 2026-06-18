@@ -1,5 +1,3 @@
-For basic build instructions, refer to the [Building section in the README](/README.md).
-
 The following is a non-exhaustive list of build arguments that can be passed to the `cmake` command-line tool in order to enable or disable options in build time:
 
 * **-DCMAKE_BUILD_TYPE=[Release|Debug|RelWithDebInfo|MinSizeRel]** <br>

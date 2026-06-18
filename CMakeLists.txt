@@ -3523,12 +3523,10 @@ set(CPACK_SOURCE_PACKAGE_FILE_NAME ${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION
 set(CPACK_SOURCE_FILES
   # tidy-alphabetical-start
   CMakeLists.txt
-  README.md
   cmake/
   data/
   datasrc/
   ddnet-libs/
-  docs/PROJECT_LICENSE_REFERENCE.txt
   lsan.supp
   memcheck.supp
   other/
@@ -3590,7 +3588,6 @@ else()
 endif()
 list(APPEND CPACK_DIRS ${COPY_DIRS})
 set(CPACK_FILES
-  docs/PROJECT_LICENSE_REFERENCE.txt
   ${COPY_FILES}
 )
 if(NOT TARGET_OS STREQUAL "emscripten")
