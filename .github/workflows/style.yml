@@ -21,7 +21,7 @@ jobs:
     - name: Prepare Linux
       run: |
         sudo apt-get update -y
-        sudo apt-get install ddnet-tools shellcheck tidy pkg-config cmake graphviz ninja-build python3-clang -y
+        sudo apt-get install ddnet-tools shellcheck tidy pkg-config cmake graphviz ninja-build python3-clang libcurl4-openssl-dev libogg-dev libopus-dev libopusfile-dev -y
         rustup default stable
         pip3 install ruff
 
