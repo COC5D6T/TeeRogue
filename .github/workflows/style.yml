@@ -62,7 +62,7 @@ jobs:
       run: |
         export PATH=/home/runner/style-tools:$PATH
         clang-format -version
-        scripts/fix_style.py --dry-run
+        python3 scripts/fix_style.py --dry-run
 
     - name: Check documentation style (Doxygen)
       run: |
@@ -98,27 +98,27 @@ jobs:
         ruff check
 
     - name: Check header guards
-      run: scripts/check_header_guards.py
+      run: python3 scripts/check_header_guards.py
 
     - name: Unused header files
-      run: scripts/check_unused_header_files.py
+      run: python3 scripts/check_unused_header_files.py
 
     - name: Check standard header includes
-      run: scripts/check_standard_headers.py
+      run: python3 scripts/check_standard_headers.py
 
     - name: Check alphabetical ordering
-      run: scripts/tidy_alphabetical.py --dry-run
+      run: python3 scripts/tidy_alphabetical.py --dry-run
 
     - name: Check absolute includes
       run: "! grep --exclude-dir rust-bridge -rE '^#include \"(antibot|base|engine|game|steam|test)/' src/"
 
     - name: Check config variables
-      run: scripts/check_config_variables.py
+      run: python3 scripts/check_config_variables.py
 
     - name: Check commands & settings export
       run: |
         echo "<!DOCTYPE html><html><head><title></title></head><body>" > settingscommands.html
-        scripts/export_settings_commands_table.py >> settingscommands.html
+        python3 scripts/export_settings_commands_table.py >> settingscommands.html
         echo "</body></html>" >> settingscommands.html
         tidy -errors --drop-empty-elements false settingscommands.html
 
@@ -133,10 +133,10 @@ jobs:
         fi
 
     - name: Validate languages
-      run: scripts/languages/validate.py
+      run: python3 scripts/languages/validate.py
 
     - name: Check languages
-      run: scripts/languages/update_all.py
+      run: python3 scripts/languages/update_all.py
 
     - name: Build dilate tool
       run: |
@@ -146,7 +146,7 @@ jobs:
         cmake --build . --config Release --target dilate
 
     - name: Check dilated images
-      run: scripts/check_dilate.py release data
+      run: python3 scripts/check_dilate.py release data
 
     - name: Build twmap tool
       run: |
