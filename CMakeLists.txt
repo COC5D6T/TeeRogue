@@ -1920,6 +1920,9 @@ set(EXPECTED_DATA
   skins7/x_ninja.json
   skins7/xmas_hat.png
   strong_weak.png
+  teerogue_gameplay.cfg
+  teerogue_reset.cfg
+  teerogue_waves.example.cfg
   themes/auto.png
   themes/autumn.png
   themes/autumn_day.map
@@ -2970,18 +2973,41 @@ if(SERVER)
     entities/dragger.h
     entities/dragger_beam.cpp
     entities/dragger_beam.h
+    entities/drop_dummy.cpp
+    entities/drop_dummy.h
+    entities/engineer_trap.cpp
+    entities/engineer_trap.h
+    entities/engineer_turret.cpp
+    entities/engineer_turret.h
     entities/gun.cpp
     entities/gun.h
     entities/laser.cpp
     entities/laser.h
     entities/light.cpp
     entities/light.h
+    entities/medic_beacon.cpp
+    entities/medic_beacon.h
+    entities/medic_heal_laser.cpp
+    entities/medic_heal_laser.h
     entities/pickup.cpp
     entities/pickup.h
     entities/plasma.cpp
     entities/plasma.h
+    entities/profession_chooser.cpp
+    entities/profession_chooser.h
     entities/projectile.cpp
     entities/projectile.h
+    entities/shop_keeper.cpp
+    entities/shop_keeper.h
+    entities/teerogue_bot_utils.cpp
+    entities/teerogue_bot_utils.h
+    entities/teerogue_drop.cpp
+    entities/teerogue_drop.h
+    entities/teerogue_monster.cpp
+    entities/teerogue_monster.h
+    entities/teerogue_monster_archetypes.h
+    entities/training_dummy.cpp
+    entities/training_dummy.h
     entity.cpp
     entity.h
     eventhandler.cpp
@@ -2994,6 +3020,10 @@ if(SERVER)
     gamemodes/ddnet.h
     gamemodes/mod.cpp
     gamemodes/mod.h
+    gamemodes/teerogue.cpp
+    gamemodes/teerogue.h
+    gamemodes/teerogue_navigation_graph.cpp
+    gamemodes/teerogue_navigation_graph.h
     gameworld.cpp
     gameworld.h
     interactions.cpp
@@ -3196,6 +3226,7 @@ if(TOOLS)
 
   add_custom_target(tools DEPENDS ${TARGETS_TOOLS})
 endif()
+
 add_custom_target(everything DEPENDS ${TARGETS_OWN})
 
 ########################################################################
@@ -3497,7 +3528,7 @@ set(CPACK_SOURCE_FILES
   data/
   datasrc/
   ddnet-libs/
-  license.txt
+  docs/PROJECT_LICENSE_REFERENCE.txt
   lsan.supp
   memcheck.supp
   other/
@@ -3559,7 +3590,7 @@ else()
 endif()
 list(APPEND CPACK_DIRS ${COPY_DIRS})
 set(CPACK_FILES
-  license.txt
+  docs/PROJECT_LICENSE_REFERENCE.txt
   ${COPY_FILES}
 )
 if(NOT TARGET_OS STREQUAL "emscripten")
